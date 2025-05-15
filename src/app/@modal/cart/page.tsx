@@ -1,10 +1,8 @@
 "use client";
 import { Drawer } from "@mui/material";
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Cart() {
-  const router = useRouter();
   const [isDrawerOpen, setIsDrawerOpen] = useState(true);
   const toggleDrawer = () => () => {
     setIsDrawerOpen(!isDrawerOpen);

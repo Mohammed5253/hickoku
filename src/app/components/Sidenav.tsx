@@ -75,7 +75,7 @@ const Drawer = styled(MuiDrawer, {
   ],
 }));
 
-export default function Sidenav({ onCartClick }: { onCartClick: any }) {
+export default function Sidenav({ onCartClick }: { onCartClick: () => void }) {
   const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {

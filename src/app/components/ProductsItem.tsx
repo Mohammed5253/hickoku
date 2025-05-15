@@ -18,37 +18,43 @@ const Item = styled(Paper)(({ theme }) => ({
   },
 }));
 
-export default function ProductsItem({ products }: { products: any }) {
+export default function ProductsItem({
+  products,
+}: {
+  products: [{ pr_image: string; pr_price: number }];
+}) {
   return (
     <>
-      {products.map((product: any, index: number) => {
-        return (
-          <Grid key={index.toString()} size={3}>
-            <Link href={"/product/post-1/"} passHref>
-              <Item sx={{ backgroundImage: `url(${product.pr_image})` }}>
-                <Typography
-                  variant="h6"
-                  color="#fff"
-                  position={"absolute"}
-                  bottom={0}
-                >
-                  Azzaro The Most Wanted Eau De Parfum Intense For Men
-                </Typography>
-                <Typography
-                  sx={{ textAlign: "center" }}
-                  variant="h6"
-                  position={"absolute"}
-                  top={0}
-                  color="#fff"
-                >
-                  {" "}
-                  Rs. {product.pr_price}
-                </Typography>
-              </Item>
-            </Link>
-          </Grid>
-        );
-      })}
+      {products.map(
+        (product: { pr_image: string; pr_price: number }, index: number) => {
+          return (
+            <Grid key={index.toString()} size={3}>
+              <Link href={"/product/post-1/"} passHref>
+                <Item sx={{ backgroundImage: `url(${product.pr_image})` }}>
+                  <Typography
+                    variant="h6"
+                    color="#fff"
+                    position={"absolute"}
+                    bottom={0}
+                  >
+                    Azzaro The Most Wanted Eau De Parfum Intense For Men
+                  </Typography>
+                  <Typography
+                    sx={{ textAlign: "center" }}
+                    variant="h6"
+                    position={"absolute"}
+                    top={0}
+                    color="#fff"
+                  >
+                    {" "}
+                    Rs. {product.pr_price}
+                  </Typography>
+                </Item>
+              </Link>
+            </Grid>
+          );
+        }
+      )}
     </>
   );
 }

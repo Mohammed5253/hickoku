@@ -2,7 +2,13 @@
 import React from "react";
 import { Drawer, Box } from "@mui/material";
 
-const RightSidebar = ({ open, onClose }: { open: boolean; onClose: any }) => {
+const RightSidebar = ({
+  open,
+  onClose,
+}: {
+  open: boolean;
+  onClose: () => void;
+}) => {
   return (
     <Drawer variant="temporary" anchor="right" open={open} onClose={onClose}>
       <Box p={2} width={250}>

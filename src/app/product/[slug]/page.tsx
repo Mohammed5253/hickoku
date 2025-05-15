@@ -4,7 +4,6 @@ import ImageSlider from "@/app/components/ImageSlider";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import ProductTabs from "@/app/components/ProductTabs";
 import Link from "next/link";
-import { LocalShippingOutlined } from "@mui/icons-material";
 
 // app/product/[slug]/page.tsx
 interface Post {
@@ -14,10 +13,6 @@ interface Post {
 
 interface Params {
   slug: string;
-}
-
-interface PostProps {
-  post: Post;
 }
 
 export default async function Product({ params }: { params: Params }) {
