@@ -21,7 +21,7 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function ProductsItem({
   products,
 }: {
-  products: [{ pr_image: string; pr_price: number }];
+  products: { pr_image: string; pr_price: number }[];
 }) {
   return (
     <>

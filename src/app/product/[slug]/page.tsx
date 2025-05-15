@@ -11,11 +11,19 @@ interface Post {
   content: string;
 }
 
-interface Params {
-  slug: string;
-}
+// interface Params {
+//   params: <Promise {
+//     slug: string;
+//   }>;
+// }
 
-export default async function Product({ params }: { params: Params }) {
+export default async function Product({
+  params,
+}: {
+  params: Promise<{
+    slug: string;
+  }>;
+}) {
   const { slug } = await params;
   const post = await getPosts(slug);
   console.log(post);
@@ -75,7 +83,7 @@ export default async function Product({ params }: { params: Params }) {
   );
 }
 
-export async function getPosts(slug: string): Promise<Post | undefined> {
+async function getPosts(slug: string): Promise<Post | undefined> {
   const posts: Record<string, Post> = {
     "post-1": { title: "Post 1", content: "This is the content of post 1." },
     "post-2": { title: "Post 2", content: "This is the content of post 2." },

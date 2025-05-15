@@ -7,7 +7,14 @@ import Box from "@mui/material/Box";
 import ProductInformaionSection from "./ProductInformationSection";
 import ProductContactSection from "./ProductContactSection";
 
-function CustomTabPanel(props) {
+interface MyComponentProps {
+  children?: React.ReactNode;
+  value: number; // or string, depending on your use case
+  index: number;
+  [key: string]: unknown; // allows other props (like 'other')
+}
+
+function CustomTabPanel(props: MyComponentProps) {
   const { children, value, index, ...other } = props;
 
   return (
@@ -29,7 +36,7 @@ CustomTabPanel.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-function a11yProps(index) {
+function a11yProps(index: number) {
   return {
     id: `simple-tab-${index}`,
     "aria-controls": `simple-tabpanel-${index}`,
@@ -39,7 +46,7 @@ function a11yProps(index) {
 export default function ProductTabs() {
   const [value, setValue] = React.useState(0);
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
