@@ -16,6 +16,12 @@ interface Post {
 //     slug: string;
 //   }>;
 // }
+export const metadata = {
+  title: "Hickoku - The Perfume for every occasion",
+  description: `A scent is more than an aroma—it is a story whispered on the skin, a lingering memory in the air, a signature of sophistication. At Hickoku, we craft exquisite fragrances that transcend time, capturing the essence of grace, allure, and opulence in every drop.
+Each bottle is a masterpiece, blending the world’s most precious essences with unparalleled artistry. From the first delicate note to the final, lingering trail, Hickoku Perfumes are an invitation to indulge in luxury, to embrace elegance, and to leave an unforgettable impression.
+Your scent. Your signature. Your legacy.Step into a world of refinement—welcome to Hickoku.`,
+};
 
 export default async function Product({
   params,
