@@ -1,3 +1,4 @@
+"use client";
 import { Grid, Paper, styled, Typography } from "@mui/material";
 import Link from "next/link";
 
@@ -5,7 +6,7 @@ const Item = styled(Paper)(({ theme }) => ({
   borderRadius: "8px",
   position: "relative",
   cursor: "pointer",
-  height: 400,
+  height: 450,
   ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: "center",
@@ -21,23 +22,40 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function ProductsItem({
   products,
 }: {
-  products: { pr_image: string; pr_price: number }[];
+  products: { pr_image: string; pr_price: number; pr_name: string }[];
 }) {
   return (
     <>
       {products.map(
-        (product: { pr_image: string; pr_price: number }, index: number) => {
+        (
+          product: { pr_image: string; pr_price: number; pr_name: string },
+          index: number
+        ) => {
           return (
-            <Grid key={index.toString()} size={3}>
+            <Grid
+              key={index.toString()}
+              size={{ xs: 6, md: 4, lg: 3, xl: 3, sm: 6 }}
+            >
               <Link href={"/product/post-1/"} passHref>
-                <Item sx={{ backgroundImage: `url(${product.pr_image})` }}>
+                <Item
+                  sx={{
+                    backgroundImage: `url(${product.pr_image})`,
+                    backgroundSize: "100% 100%",
+                    padding: 0,
+                  }}
+                >
                   <Typography
                     variant="h6"
                     color="#fff"
                     position={"absolute"}
                     bottom={0}
+                    fontWeight={"bold"}
+                    sx={{
+                      backgroundColor: "#c6a400",
+                      opacity: 0.9,
+                    }}
                   >
-                    Azzaro The Most Wanted Eau De Parfum Intense For Men
+                    {product.pr_name}
                   </Typography>
                   <Typography
                     sx={{ textAlign: "center" }}

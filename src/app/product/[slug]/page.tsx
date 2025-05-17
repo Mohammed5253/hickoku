@@ -32,10 +32,14 @@ export default async function Product({
   return (
     <Grid container m={"20px"} height={500}>
       {/* <Typography variant="body1">{post?.content}</Typography> */}
-      <Grid size={6}>
+      <Grid size={{ xs: 12, md: 6, lg: 6, sm: 6 }}>
         <ImageSlider />
       </Grid>
-      <Grid size={6} px={4}>
+      <Grid
+        size={{ xs: 12, md: 6, lg: 6, sm: 6 }}
+        px={4}
+        mt={{ xs: 2, md: 0, lg: 0, sm: 0 }}
+      >
         <Grid container alignItems="center">
           <IconButton>
             <ChevronLeftIcon />

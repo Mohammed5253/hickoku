@@ -4,21 +4,20 @@ import { Box, Grid, Typography } from "@mui/material";
 import { useState } from "react";
 
 const images = [
-  { title: "Nature", imageUrl: "/images/image1.jfif" },
-  { title: "Ocean", imageUrl: "/images/image2.jfif" },
-  { title: "Mountains", imageUrl: "/images/image1.jfif" },
-  { title: "Desert", imageUrl: "/images/image2.jfif" },
-  { title: "Forest", imageUrl: "/images/image1.jfif" },
+  { title: "Luminous", imageUrl: "/hickoku/culture-7.jpeg" },
+  { title: "Noire", imageUrl: "/hickoku/culture-2.jpeg" },
+  { title: "Fleur Royale", imageUrl: "/hickoku/culture-3.jpeg" },
+  { title: "Ember", imageUrl: "/hickoku/culture-5.jpeg" },
+  { title: "Élan", imageUrl: "/hickoku/culture-6.jpeg" },
 ];
 
 export default function HickokuCulture() {
   const [parentBgImage, setParentBgImage] = useState("");
-
   return (
     <Grid
       sx={{
         backgroundImage: `url(${parentBgImage})`,
-        backgroundColor: !parentBgImage ? "#fff" : null,
+        backgroundColor: parentBgImage === "" ? "#fff" : null,
       }}
       mx={"20px"}
       pt={"40px"}

@@ -1,3 +1,9 @@
+
+/* html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+} */
 .page {
   --gray-rgb: 0, 0, 0;
   --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
@@ -168,13 +174,37 @@ a.secondary {
 }
 
 .backgroundImage {
-  background-image: url('/images/image1.jfif');
+  background-image: url('/hickoku/hickoku-banner-2.jpeg');
   background-size: cover;
   background-position: center;
   height: 688px;
 }
 .backgroundImage2 {
-  background-image: url('/images/image2.jfif');
+  background-image: url('/hickoku/hickoku-banner-1.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 688px;
+}
+.miniBanner1 {
+  background-image: url('/hickoku/mini-banner-1.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 688px;
+}
+.miniBanner2{
+  background-image: url('/hickoku/mini-banner-2.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 688px;
+}
+.miniBanner3 {
+  background-image: url('/hickoku/mini-banner-3.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 688px;
+}
+.miniBanner4 {
+  background-image: url('/hickoku/mini-banner-4.jpeg');
   background-size: cover;
   background-position: center;
   height: 688px;
@@ -184,4 +214,9 @@ h1.imageCaption{
   font-size: 20px ;
   font-weight: 700;
 }
-  
+
+@media screen and (max-width: 600px) {
+  .imageCaption {
+    font-size: 1.4rem;
+  }
+}

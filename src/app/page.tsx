@@ -1,5 +1,3 @@
-"use client";
-
 import { Box, Button, Grid, Typography } from "@mui/material";
 import styles from "./page.module.css";
 import HickokuCulture from "./components/HickokuCulture";
@@ -12,6 +10,12 @@ import ExtraInfo from "./components/ExtraInfo";
 //   color: (theme.vars ?? theme).palette.text.secondary,
 //   ...theme.applyStyles("dark", {}),
 // }));
+export const metadata = {
+  title: "Hickoku - The Perfume for every ocassion",
+  description: `A scent is more than an aroma—it is a story whispered on the skin, a lingering memory in the air, a signature of sophistication. At Hickoku, we craft exquisite fragrances that transcend time, capturing the essence of grace, allure, and opulence in every drop.
+Each bottle is a masterpiece, blending the world’s most precious essences with unparalleled artistry. From the first delicate note to the final, lingering trail, Hickoku Perfumes are an invitation to indulge in luxury, to embrace elegance, and to leave an unforgettable impression.
+Your scent. Your signature. Your legacy.Step into a world of refinement—welcome to Hickoku.`,
+};
 
 export default function Home() {
   return (
@@ -36,10 +40,10 @@ export default function Home() {
             ml={"20px"}
           >
             <Typography component={"h1"} className={styles.imageCaption}>
-              ANTHEM BAGS
+              ✨ Hickoku Luminous
             </Typography>
             <Typography component={"h1"} className={styles.imageCaption}>
-              SPRING - SUMMER 2025
+              A Radiant Whisper of Elegance
             </Typography>
             <Button
               variant="outlined"
@@ -72,7 +76,7 @@ export default function Home() {
         <Grid
           size={{ xs: 12, md: 6 }}
           borderRadius={"8px"}
-          className={styles.backgroundImage}
+          className={styles.miniBanner1}
           position={"relative"}
         >
           <Box
@@ -83,7 +87,7 @@ export default function Home() {
             ml={"20px"}
           >
             <Typography component={"h1"} className={styles.imageCaption}>
-              GIFT GUIDE
+              Hickoku Noire – The Mystery of Midnight
             </Typography>
             <Button
               variant="outlined"
@@ -119,7 +123,7 @@ export default function Home() {
         <Grid
           size={{ xs: 12, md: 6 }}
           borderRadius={"8px"}
-          className={styles.backgroundImage}
+          className={styles.miniBanner2}
           position={"relative"}
         >
           <Box
@@ -130,7 +134,7 @@ export default function Home() {
             ml={"20px"}
           >
             <Typography component={"h1"} className={styles.imageCaption}>
-              HICKOKU ESSENTIALS
+              Hickoku Élan
             </Typography>
             <Button
               variant="outlined"
@@ -175,7 +179,7 @@ export default function Home() {
         <Grid
           size={{ xs: 12, md: 6 }}
           borderRadius={"8px"}
-          className={styles.backgroundImage}
+          className={styles.miniBanner3}
           position={"relative"}
         >
           <Box
@@ -186,7 +190,7 @@ export default function Home() {
             ml={"20px"}
           >
             <Typography component={"h1"} className={styles.imageCaption}>
-              SNEAKERS
+              Hickoku Rouge – A Bold Affair of Passion & Power
             </Typography>
             <Button
               variant="outlined"
@@ -222,7 +226,7 @@ export default function Home() {
         <Grid
           size={{ xs: 12, md: 6 }}
           borderRadius={"8px"}
-          className={styles.backgroundImage}
+          className={styles.miniBanner4}
           position={"relative"}
         >
           <Box
@@ -233,7 +237,7 @@ export default function Home() {
             ml={"20px"}
           >
             <Typography component={"h1"} className={styles.imageCaption}>
-              SPRING - SUMMER 2025
+              Hickoku Alchemy – The Hot Soul
             </Typography>
             <Button
               variant="outlined"
@@ -270,7 +274,7 @@ export default function Home() {
       <Grid my={"20px"}>
         <HickokuCulture />
         <SingupAndUpdate />
-        <ExtraInfo />s
+        <ExtraInfo />
       </Grid>
     </>
   );

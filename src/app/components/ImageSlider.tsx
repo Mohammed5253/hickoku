@@ -4,16 +4,16 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import "@/app/page.module.css";
 const images = [
   {
-    original: "https://lipsum.app/random/640x750",
-    thumbnail: "https://lipsum.app/random/100x75",
+    original: "/hickoku/perfume-1.jpeg",
+    thumbnail: "/hickoku/perfume-1.jpeg",
   },
   {
-    original: "https://lipsum.app/random/640x750",
-    thumbnail: "https://lipsum.app/random/100x75",
+    original: "/hickoku/perfume-2.jpeg",
+    thumbnail: "/hickoku/perfume-2.jpeg",
   },
   {
-    original: "https://lipsum.app/random/640x750",
-    thumbnail: "https://lipsum.app/random/100x75",
+    original: "/hickoku/perfume-3.jpeg",
+    thumbnail: "/hickoku/perfume-3.jpeg",
   },
 ];
 

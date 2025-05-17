@@ -36,10 +36,29 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Box sx={{ display: "flex" }}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable}`}
+        style={{ background: "#f5f5f5" }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" }, // stack vertically on xs, horizontally on md+
+            height: { xs: "auto", md: "100vh" }, // full viewport height on desktop, auto on mobile
+            width: "100%",
+            overflowX: "hidden",
+          }}
+        >
           <Sidenav onCartClick={handleCartClick} />
-          <Box component="main" sx={{ flexGrow: 1 }}>
+          <Box
+            component="main"
+            sx={{
+              flexGrow: 1,
+              width: "100%",
+              minWidth: 0, // prevents overflow
+              overflowX: "hidden",
+            }}
+          >
             {children}
           </Box>
 

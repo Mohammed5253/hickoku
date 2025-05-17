@@ -13,12 +13,14 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import MailIcon from "@mui/icons-material/Mail";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SearchIcon from "@mui/icons-material/Search";
 import Link from "next/link";
+import OpenMenuListing from "./OpenMenuListing";
+import Style from "@mui/icons-material/Style";
+import { useTheme, useMediaQuery } from "@mui/material";
 
-const drawerWidth = 240;
+const drawerWidth = 380;
 
 const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerWidth,
@@ -85,120 +87,171 @@ export default function Sidenav({ onCartClick }: { onCartClick: () => void }) {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
+  const theme = useTheme();
+  const isTablet = useMediaQuery(theme.breakpoints.down("md")); // 600px - 900px
+  console.log("isTablet", isTablet);
   return (
     <Box
       sx={{
-        display: "flex",
+        display: isTablet ? "none" : "flex",
         alignItems: "center",
         justifyContent: !open ? "center" : "flex-end",
       }}
     >
       <CssBaseline />
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader
-          sx={{ padding: 0, justifyContent: !open ? "center" : "flex-end" }}
-        >
-          {open ? (
-            <IconButton onClick={handleDrawerClose}>
-              <ChevronLeftIcon />
-            </IconButton>
-          ) : (
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              <IconButton
-                onClick={handleDrawerOpen}
-                disableRipple
-                sx={{ width: "15px", padding: 0 }}
-              >
-                <MenuIcon sx={{ fontSize: "40px" }} />
+      {!open ? (
+        <Drawer variant="permanent" open={open}>
+          <DrawerHeader
+            sx={{ padding: 0, justifyContent: !open ? "center" : "flex-end" }}
+          >
+            {open ? (
+              <IconButton onClick={handleDrawerClose}>
+                <ChevronLeftIcon />
               </IconButton>
-              <Typography variant="caption">Menu</Typography>
-            </div>
-          )}
-        </DrawerHeader>
+            ) : (
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <IconButton
+                  onClick={handleDrawerOpen}
+                  disableRipple
+                  sx={{ width: "15px", padding: 0 }}
+                >
+                  <MenuIcon sx={{ fontSize: "40px" }} />
+                </IconButton>
+                <Typography variant="caption">Menu</Typography>
+              </div>
+            )}
+          </DrawerHeader>
 
-        <List>
-          {open &&
-            [
-              {
-                label: "Search",
-                link: "/search",
-                icon: SearchIcon,
-                isDrawer: false,
-              },
-              {
-                label: "Collection",
-                link: "/collection",
-                icon: MailIcon,
-                isDrawer: false,
-              },
-              {
-                label: "Cart",
-                link: "#",
-                icon: ShoppingCartIcon,
-                isDrawer: true,
-              },
-            ].map(({ label, link, icon: IconCopmponent, isDrawer }) => (
-              <ListItem key={label} disablePadding sx={{ display: "block" }}>
-                {/* {isDrawer ? <Button onClick={onCartClick}> {label}</Button> : */}
-                <Link href={link} passHref>
-                  <ListItemButton
-                    onClick={() => (isDrawer ? onCartClick() : "")}
-                    sx={[
-                      {
-                        minHeight: 48,
-                        px: 2.5,
-                      },
-                      open
-                        ? {
-                            justifyContent: "initial",
-                          }
-                        : {
-                            justifyContent: "center",
-                          },
-                    ]}
-                  >
-                    <ListItemIcon
+          <List>
+            {open ? (
+              <OpenMenuListing />
+            ) : (
+              [
+                {
+                  label: "Search",
+                  link: "/search",
+                  icon: SearchIcon,
+                  isDrawer: false,
+                },
+                {
+                  label: "Collection",
+                  link: "/collection",
+                  icon: Style,
+                  isDrawer: false,
+                },
+                {
+                  label: "Cart",
+                  link: "#",
+                  icon: ShoppingCartIcon,
+                  isDrawer: true,
+                },
+              ].map(({ label, link, icon: IconCopmponent, isDrawer }) => (
+                <ListItem key={label} disablePadding sx={{ display: "block" }}>
+                  {/* {isDrawer ? <Button onClick={onCartClick}> {label}</Button> : */}
+                  <Link href={link} passHref>
+                    <ListItemButton
+                      onClick={() => (isDrawer ? onCartClick() : "")}
                       sx={[
                         {
-                          minWidth: 0,
-                          justifyContent: "center",
+                          minHeight: 48,
+                          px: 2.5,
                         },
                         open
                           ? {
-                              mr: 3,
+                              justifyContent: "initial",
                             }
                           : {
-                              mr: "auto",
+                              justifyContent: "center",
                             },
                       ]}
                     >
-                      <IconCopmponent />
-                    </ListItemIcon>
-                    <ListItemText
-                      primary={label}
-                      sx={[
-                        open
-                          ? {
-                              opacity: 1,
-                            }
-                          : {
-                              opacity: 0,
-                            },
-                      ]}
-                    />
-                  </ListItemButton>
-                </Link>
-              </ListItem>
-            ))}
-        </List>
-      </Drawer>
+                      <ListItemIcon
+                        sx={[
+                          {
+                            minWidth: 0,
+                            justifyContent: "center",
+                          },
+                          open
+                            ? {
+                                mr: 3,
+                              }
+                            : {
+                                mr: "auto",
+                              },
+                        ]}
+                      >
+                        <IconCopmponent />
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={label}
+                        sx={[
+                          open
+                            ? {
+                                opacity: 1,
+                              }
+                            : {
+                                opacity: 0,
+                              },
+                        ]}
+                      />
+                    </ListItemButton>
+                  </Link>
+                </ListItem>
+              ))
+            )}
+          </List>
+        </Drawer>
+      ) : (
+        <Drawer
+          variant="permanent"
+          anchor="left"
+          sx={{
+            width: drawerWidth,
+            flexShrink: 0,
+            "& .MuiDrawer-paper": {
+              width: drawerWidth,
+              boxSizing: "border-box",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between", // Pushes bottom content down
+            },
+          }}
+        >
+          <DrawerHeader
+            sx={{ padding: 0, justifyContent: !open ? "center" : "flex-end" }}
+          >
+            {open ? (
+              <IconButton onClick={handleDrawerClose}>
+                <ChevronLeftIcon />
+              </IconButton>
+            ) : (
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <IconButton
+                  onClick={handleDrawerOpen}
+                  disableRipple
+                  sx={{ width: "15px", padding: 0 }}
+                >
+                  <MenuIcon sx={{ fontSize: "40px" }} />
+                </IconButton>
+                <Typography variant="caption">Menu</Typography>
+              </div>
+            )}
+          </DrawerHeader>
+          <OpenMenuListing />
+        </Drawer>
+      )}
     </Box>
   );
 }

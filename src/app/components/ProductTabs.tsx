@@ -9,9 +9,9 @@ import ProductContactSection from "./ProductContactSection";
 
 interface MyComponentProps {
   children?: React.ReactNode;
-  value: number; // or string, depending on your use case
+  value: number;
   index: number;
-  [key: string]: unknown; // allows other props (like 'other')
+  [key: string]: unknown;
 }
 
 function CustomTabPanel(props: MyComponentProps) {
@@ -25,7 +25,7 @@ function CustomTabPanel(props: MyComponentProps) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+      {value === index && <Box sx={{ p: { xs: 2, sm: 3 } }}>{children}</Box>}
     </div>
   );
 }
@@ -51,12 +51,21 @@ export default function ProductTabs() {
   };
 
   return (
-    <Box sx={{ width: "100%" }} mt={5}>
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+    <Box sx={{ width: "100%", mt: 5 }}>
+      <Box
+        sx={{
+          borderBottom: 1,
+          borderColor: "divider",
+          overflowX: "auto",
+        }}
+      >
         <Tabs
           value={value}
           onChange={handleChange}
-          aria-label="basic tabs example"
+          aria-label="product tabs"
+          variant="scrollable"
+          scrollButtons="auto"
+          allowScrollButtonsMobile
         >
           <Tab label="DESCRIPTION" {...a11yProps(0)} />
           <Tab label="DELIVERY & RETURNS" {...a11yProps(1)} />
@@ -64,7 +73,14 @@ export default function ProductTabs() {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <pre>
+        <Box
+          component="pre"
+          sx={{
+            whiteSpace: "pre-wrap",
+            wordWrap: "break-word",
+            fontSize: { xs: "0.9rem", sm: "1rem" },
+          }}
+        >
           {`Calfskin Anthem Medium bag
 
 Soft belted style
@@ -80,7 +96,7 @@ Dimensions: 43 x 20 x 14 cm
 Main material: 100% calfskin
 Made in Italy
 Item: EN0KK990LMXL`}
-        </pre>
+        </Box>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         <ProductInformaionSection />

@@ -1,99 +1,11 @@
-"use client";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import { Chip, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import ProductsItem from "../components/ProductsItem";
-
-const PRODUCTS = [
-  {
-    pr_image: "/images/image1.jfif",
-    pr_name: "Azzaro The Most Wanted Eau De Parfum Intense For Men",
-    pr_rating: 2,
-    pr_price: 2000,
-    pr_size: [20, 50, 60, 100],
-  },
-  {
-    pr_image: "/images/image1.jfif",
-    pr_name: "Azzaro The Most Wanted Eau De Parfum Intense For Men",
-    pr_rating: 2,
-    pr_price: 2000,
-    pr_size: [20, 50, 60, 100],
-  },
-  {
-    pr_image: "/images/image1.jfif",
-    pr_name: "Azzaro The Most Wanted Eau De Parfum Intense For Men",
-    pr_rating: 2,
-    pr_price: 2000,
-    pr_size: [20, 50, 60, 100],
-  },
-  {
-    pr_image: "/images/image1.jfif",
-    pr_name: "Azzaro The Most Wanted Eau De Parfum Intense For Men",
-    pr_rating: 2,
-    pr_price: 2000,
-    pr_size: [20, 50, 60, 100],
-  },
-  {
-    pr_image: "/images/image1.jfif",
-    pr_name: "Azzaro The Most Wanted Eau De Parfum Intense For Men",
-    pr_rating: 2,
-    pr_price: 2000,
-    pr_size: [20, 50, 60, 100],
-  },
-  {
-    pr_image: "/images/image1.jfif",
-    pr_name: "Azzaro The Most Wanted Eau De Parfum Intense For Men",
-    pr_rating: 2,
-    pr_price: 2000,
-    pr_size: [20, 50, 60, 100],
-  },
-  {
-    pr_image: "/images/image1.jfif",
-    pr_name: "Azzaro The Most Wanted Eau De Parfum Intense For Men",
-    pr_rating: 2,
-    pr_price: 2000,
-    pr_size: [20, 50, 60, 100],
-  },
-  {
-    pr_image: "/images/image1.jfif",
-    pr_name: "Azzaro The Most Wanted Eau De Parfum Intense For Men",
-    pr_rating: 2,
-    pr_price: 2000,
-    pr_size: [20, 50, 60, 100],
-  },
-  {
-    pr_image: "/images/image1.jfif",
-    pr_name: "Azzaro The Most Wanted Eau De Parfum Intense For Men",
-    pr_rating: 2,
-    pr_price: 2000,
-    pr_size: [20, 50, 60, 100],
-  },
-  {
-    pr_image: "/images/image1.jfif",
-    pr_name: "Azzaro The Most Wanted Eau De Parfum Intense For Men",
-    pr_rating: 2,
-    pr_price: 2000,
-    pr_size: [20, 50, 60, 100],
-  },
-  {
-    pr_image: "/images/image1.jfif",
-    pr_name: "Azzaro The Most Wanted Eau De Parfum Intense For Men",
-    pr_rating: 2,
-    pr_price: 2000,
-    pr_size: [20, 50, 60, 100],
-  },
-  {
-    pr_image: "/images/image1.jfif",
-    pr_name: "Azzaro The Most Wanted Eau De Parfum Intense For Men",
-    pr_rating: 2,
-    pr_price: 2000,
-    pr_size: [20, 50, 60, 100],
-  },
-];
+import { PRODUCTS } from "@/app/utils/constant";
+import FilterComponent from "../components/FilterComponent";
+import Link from "next/link";
 
 export default function Product() {
-  const handleClick = () => {
-    console.log("Chip Clicked");
-  };
   return (
     <>
       <Grid
@@ -104,7 +16,9 @@ export default function Product() {
         rowSpacing={2}
       >
         <Grid>
-          <ChevronLeftIcon />
+          <Link href={"/"} passHref>
+            <ChevronLeftIcon />
+          </Link>
         </Grid>
         <Grid mt={"20px"}>
           <Typography component={"h1"} fontSize={"30px"} fontWeight={"bold"}>
@@ -112,7 +26,7 @@ export default function Product() {
           </Typography>
         </Grid>
         <Grid mt={"10px"}>
-          <Chip label="Fileters | Sort By" onClick={() => handleClick} />
+          <FilterComponent />
         </Grid>
         <Grid container spacing={2}>
           <ProductsItem products={PRODUCTS} />
