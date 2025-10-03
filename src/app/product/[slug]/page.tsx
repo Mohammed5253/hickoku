@@ -1,15 +1,17 @@
-import { Button, Grid, IconButton, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ImageSlider from "@/app/components/ImageSlider";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import ProductTabs from "@/app/components/ProductTabs";
 import Link from "next/link";
+import { PRODUCTS } from "@/app/utils/constant";
+import PerfumeSizeSelector from "@/app/components/PerfumeSizeSelector";
+import { AddToCart } from "@/app/components/AddToCart";
 
 // app/product/[slug]/page.tsx
-interface Post {
-  title: string;
-  content: string;
-}
+// interface Post {
+//   title: string;
+//   content: string;
+// }
 
 // interface Params {
 //   params: <Promise {
@@ -31,9 +33,10 @@ export default async function Product({
   }>;
 }) {
   const { slug } = await params;
-  const post = await getPosts(slug);
-  console.log(post);
-
+  // const post = await getPosts(slug);
+  console.log(slug);
+  const product = PRODUCTS.find((item) => item.pr_id.toString() === slug);
+  console.log(product);
   // Render the post content
   return (
     <Grid container m={"20px"} height={500}>
@@ -47,65 +50,72 @@ export default async function Product({
         mt={{ xs: 2, md: 0, lg: 0, sm: 0 }}
       >
         <Grid container alignItems="center">
-          <IconButton>
-            <ChevronLeftIcon />
-          </IconButton>
+          {/* <IconButton href={"/collection"} sx={{ p: 0 }}> */}
+          <ChevronLeftIcon />
+          {/* </IconButton> */}
           <Link href={"/collection"}>
             <Typography variant="h6" sx={{ alignContent: "center" }}>
               Collection
             </Typography>
           </Link>
         </Grid>
-        <Typography variant="h5" my={3}>
-          Azzaro Chrome Eau De Toilette Gift Set For Men
+        <Typography variant="h5" py={"8px"} style={{ fontWeight: "bold" }}>
+          {product?.pr_name}
         </Typography>
-        <Typography variant="body2" mb={3}>
-          Rs 4,000
+        <Typography variant="body2" mb={3} fontWeight={700} fontStyle={"14px"}>
+          Rs. {product?.pr_price}
         </Typography>
-
-        {/* Additional information */}
-        <Typography variant="body2" mb={3}>
-          Tax included.
-        </Typography>
-        <Typography variant="body2" mb={3}>
-          100% Authentic Products
-        </Typography>
-        <Typography variant="body2" mb={3} alignContent={"center"}>
-          Free Delivery in 2 to 5 Days{" "}
-        </Typography>
-        <Typography variant="body2" mb={3}>
-          Earn reward points on every purchase
-        </Typography>
-        <Grid container>
-          {/* Connect to WhatsApp button */}
-          <Button
-            fullWidth
-            variant="contained"
-            color="primary"
-            startIcon={<WhatsAppIcon />}
+        <Box my="20px" p={"20px"} bgcolor={"#FFF"} borderRadius={"8px"}>
+          <PerfumeSizeSelector
+            sizes={product?.pr_size.map((size) => size + " ml") || []}
+            defaultSize={"20 ml"}
+          />
+          <Typography variant="body2" mb={1} color="#696969">
+            Tax included.
+          </Typography>
+          <Typography variant="body2" mb={1} color="#696969">
+            100% Authentic Products
+          </Typography>
+          <Typography
+            variant="body2"
+            mb={1}
+            alignContent={"center"}
+            color="#696969"
           >
-            Connect to WhatsApp
-          </Button>
-          <ProductTabs />
-        </Grid>
+            Free Delivery in 2 to 5 Days{" "}
+          </Typography>
+          <Typography variant="body2" mb={1} color="#696969">
+            Earn reward points on every purchase
+          </Typography>
+        </Box>
+        <AddToCart
+          selectedproduct={{
+            name: product?.pr_name || "",
+            id: product?.pr_id || 0,
+            price: product?.pr_price || 0,
+            image: product?.pr_image || "",
+            quantity: 1,
+          }}
+        />
+        <ProductTabs />
       </Grid>
     </Grid>
   );
 }
 
-async function getPosts(slug: string): Promise<Post | undefined> {
-  const posts: Record<string, Post> = {
-    "post-1": { title: "Post 1", content: "This is the content of post 1." },
-    "post-2": { title: "Post 2", content: "This is the content of post 2." },
-    "post-3": { title: "Post 3", content: "This is the content of post 3." },
-  };
+// async function getPosts(slug: string): Promise<Post | undefined> {
+//   const posts: Record<string, Post> = {
+//     "post-1": { title: "Post 1", content: "This is the content of post 1." },
+//     "post-2": { title: "Post 2", content: "This is the content of post 2." },
+//     "post-3": { title: "Post 3", content: "This is the content of post 3." },
+//   };
 
-  // Fetch data from mock data based on the slug
-  const post = posts[slug];
-  // Pass data to the page via props
-  return post;
-}
+//   // Fetch data from mock data based on the slug
+//   const post = posts[slug];
+//   // Pass data to the page via props
+//   return post;
+// }
 
-export async function generateStaticParams() {
-  return [{ slug: "post-1" }, { slug: "post-2" }, { slug: "post-3" }];
-}
+// export async function generateStaticParams() {
+//   return [{ slug: "post-1" }, { slug: "post-2" }, { slug: "post-3" }];
+// }

@@ -3,6 +3,7 @@ import styles from "./page.module.css";
 import HickokuCulture from "./components/HickokuCulture";
 import SingupAndUpdate from "./components/SingupAndUpdate";
 import ExtraInfo from "./components/ExtraInfo";
+import Link from "next/link";
 
 // const Item = styled(Paper)(({ theme }) => ({
 //   ...theme.typography.body2,
@@ -56,7 +57,7 @@ export default function Home() {
                 color: "#000",
               }}
             >
-              Shop Now
+              <Link href={"/collection?filter=luminous"}> Shop Now </Link>
             </Button>
           </Box>
         </Grid>
@@ -102,7 +103,7 @@ export default function Home() {
                 marginRight: "10px",
               }}
             >
-              For Her
+              <Link href={"/collection?filter=for-her"}>For Her</Link>
             </Button>
             <Button
               variant="outlined"
@@ -116,7 +117,7 @@ export default function Home() {
                 height: "29px",
               }}
             >
-              For Him
+              <Link href={"/collection?filter=for-him"}>For Him</Link>
             </Button>
           </Box>
         </Grid>
@@ -149,7 +150,7 @@ export default function Home() {
                 marginRight: "10px",
               }}
             >
-              For Her
+              <Link href={"/collection?filter=for-her"}>For Her</Link>
             </Button>
             <Button
               variant="outlined"
@@ -163,7 +164,7 @@ export default function Home() {
                 height: "29px",
               }}
             >
-              For Him
+              <Link href={"/collection?filter=for-her"}>For Him</Link>
             </Button>
           </Box>
         </Grid>
@@ -205,7 +206,7 @@ export default function Home() {
                 marginRight: "10px",
               }}
             >
-              For Her
+              <Link href={"/collection?filter=for-her"}>For Her</Link>
             </Button>
             <Button
               variant="outlined"
@@ -252,7 +253,7 @@ export default function Home() {
                 marginRight: "10px",
               }}
             >
-              For Her
+              <Link href={"/collection?filter=for-her"}>For Her</Link>
             </Button>
             <Button
               variant="outlined"
@@ -266,7 +267,7 @@ export default function Home() {
                 height: "29px",
               }}
             >
-              For Him
+              <Link href={"/collection?filter=for-her"}>For Him</Link>
             </Button>
           </Box>
         </Grid>

@@ -5,6 +5,7 @@ export const PRODUCTS = [
     pr_rating: 2,
     pr_price: 2000,
     pr_size: [20, 50, 60, 100],
+    pr_id:1
   },
   {
     pr_image: "/hickoku/perfume-2.jpeg",
@@ -12,6 +13,7 @@ export const PRODUCTS = [
     pr_rating: 2,
     pr_price: 2000,
     pr_size: [20, 50, 60, 100],
+    pr_id:2
   },
   {
     pr_image: "/hickoku/perfume-3.jpeg",
@@ -19,13 +21,15 @@ export const PRODUCTS = [
     pr_rating: 2,
     pr_price: 2000,
     pr_size: [20, 50, 60, 100],
+    pr_id:3
   },
   {
     pr_image: "/hickoku/perfume-4.jpeg",
     pr_name: "Hickoku Ember – A Fiery Expression of Passion",
     pr_rating: 2,
     pr_price: 2000,
-    pr_size: [20, 50, 60, 100],
+    pr_size: [20, 50, 60, 100], 
+    pr_id:4
   },
   {
     pr_image: "/hickoku/perfume-5.jpeg",
@@ -33,6 +37,7 @@ export const PRODUCTS = [
     pr_rating: 2,
     pr_price: 2000,
     pr_size: [20, 50, 60, 100],
+    pr_id:5
   },
   {
     pr_image: "/hickoku/perfume-6.jpeg",
@@ -40,6 +45,7 @@ export const PRODUCTS = [
     pr_rating: 2,
     pr_price: 2000,
     pr_size: [20, 50, 60, 100],
+    pr_id:6
   },
   {
     pr_image: "/hickoku/perfume-7.jpeg",
@@ -47,6 +53,7 @@ export const PRODUCTS = [
     pr_rating: 2,
     pr_price: 2000,
     pr_size: [20, 50, 60, 100],
+    pr_id:7
   },
   {
     pr_image: "/hickoku/perfume-8.jpeg",
@@ -54,6 +61,7 @@ export const PRODUCTS = [
     pr_rating: 2,
     pr_price: 2000,
     pr_size: [20, 50, 60, 100],
+    pr_id:8
   },
   {
     pr_image: "/hickoku/perfume-9.jpeg",
@@ -61,6 +69,7 @@ export const PRODUCTS = [
     pr_rating: 2,
     pr_price: 2000,
     pr_size: [20, 50, 60, 100],
+    pr_id:9
   },
   {
     pr_image: "/hickoku/perfume-10.jpeg",
@@ -68,6 +77,7 @@ export const PRODUCTS = [
     pr_rating: 2,
     pr_price: 2000,
     pr_size: [20, 50, 60, 100],
+    pr_id:10
   },
   {
     pr_image: "/hickoku/perfume-11.jpeg",
@@ -75,6 +85,7 @@ export const PRODUCTS = [
     pr_rating: 2,
     pr_price: 2000,
     pr_size: [20, 50, 60, 100],
+    pr_id:11    
   },
   {
     pr_image: "/hickoku/perfume-12.jpeg",
@@ -82,6 +93,7 @@ export const PRODUCTS = [
     pr_rating: 2,
     pr_price: 2000,
     pr_size: [20, 50, 60, 100],
+    pr_id:12
   },
   {
     pr_image: "/hickoku/perfume-13.jpeg",
@@ -89,6 +101,7 @@ export const PRODUCTS = [
     pr_rating: 2,
     pr_price: 2000,
     pr_size: [20, 50, 60, 100],
+    pr_id:13
   },
   {
     pr_image: "/hickoku/perfume-14.jpeg",
@@ -96,6 +109,7 @@ export const PRODUCTS = [
     pr_rating: 2,
     pr_price: 2000,
     pr_size: [20, 50, 60, 100],
+    pr_id:14
   },
   {
     pr_image: "/hickoku/perfume-15.jpeg",
@@ -103,6 +117,7 @@ export const PRODUCTS = [
     pr_rating: 2,
     pr_price: 2000,
     pr_size: [20, 50, 60, 100],
+    pr_id:15
   },
   {
     pr_image: "/hickoku/perfume-16.jpeg",
@@ -110,5 +125,6 @@ export const PRODUCTS = [
     pr_rating: 2,
     pr_price: 2000,
     pr_size: [20, 50, 60, 100],
+    pr_id:16
   },
 ];

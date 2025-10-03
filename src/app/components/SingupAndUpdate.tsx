@@ -15,17 +15,26 @@ export default function SingupAndUpdate() {
     >
       <Grid size={6}>
         <Typography fontSize={"16px"} fontWeight={700}>
-          {"SIGN UP FOR HICKOKU UPDATES"}
+          {"Hickoku – The Fragrance of Timeless Elegance"}
           <br />
           <br />
-          {`Be in the know about what's happening at the Parisian Maison: never miss out on the latest trends, newest collections and exciting special projects from Balmain.`}
+          {`A scent is more than an aroma—it is a story whispered on the skin, a lingering memory in the air, a signature of sophistication. At Hickoku, we craft exquisite fragrances that transcend time, capturing the essence of grace, allure, and opulence in every drop.`}
         </Typography>
         <br />
         <Typography component={"span"}>
-          {`Pierre Balmain processes the data collected to send you our newsletter. To find out more about how we manage your personal data and to exercise your rights, please refer to our privacy policy.`}
+          {`Each bottle is a masterpiece, blending the world’s most precious essences with unparalleled artistry. From the first delicate note to the final, lingering trail, Hickoku Perfumes are an invitation to indulge in luxury, to embrace elegance, and to leave an unforgettable impression.`}
+        </Typography>
+        <br />
+        <Typography
+          fontSize={"16px"}
+          fontWeight={700}
+        >{`Your scent. Your signature. Your legacy.`}</Typography>
+        <br />
+
+        <Typography fontSize={"16px"} fontWeight={700}>
+          {"Step into a world of refinement—welcome to Hickoku."}
+
           <br />
-          <br />
-          {`*Mandatory information: If you choose not to give your consent for the collection of mandatory data you will not be able to subscribe to the newsletter.`}
         </Typography>
       </Grid>
       <Grid

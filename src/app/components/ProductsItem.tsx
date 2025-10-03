@@ -1,78 +1,89 @@
 "use client";
-import { Grid, Paper, styled, Typography } from "@mui/material";
+import { Box, Grid, Paper, styled, Typography } from "@mui/material";
 import Link from "next/link";
 
-const Item = styled(Paper)(({ theme }) => ({
-  borderRadius: "8px",
+// Styled Product Card
+const ProductCard = styled(Paper)(({ theme }) => ({
   position: "relative",
   cursor: "pointer",
-  height: 450,
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: (theme.vars ?? theme).palette.text.secondary,
-  ...theme.applyStyles("dark", {
-    backgroundColor: "#1A2027",
-  }),
+  overflow: "hidden",
+  borderRadius: "12px",
+  transition: "transform 0.3s ease, box-shadow 0.3s ease",
+  height: 400,
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "flex-end",
+  backgroundColor: theme.palette.grey[900],
   "&:hover": {
-    backgroundImage: `url('/images/image2.jfif')`,
+    transform: "scale(1.03)",
+    boxShadow: "0 10px 20px rgba(0,0,0,0.4)",
   },
 }));
 
+// Styled Image
+const ProductImage = styled("img")({
+  width: "100%",
+  height: "100%",
+  objectFit: "cover",
+  position: "absolute",
+  top: 0,
+  left: 0,
+  zIndex: 1,
+});
+
+// Overlay info box
+const InfoOverlay = styled(Box)(({ theme }) => ({
+  position: "relative",
+  zIndex: 2,
+  background: "rgba(0, 0, 0, 0.6)",
+  backdropFilter: "blur(4px)",
+  color: "#fff",
+  padding: theme.spacing(2),
+  borderTop: "1px solid rgba(255,255,255,0.1)",
+}));
+
+// Product name
+const ProductName = styled(Typography)(({ theme }) => ({
+  fontSize: "1.1rem",
+  fontWeight: 600,
+  marginBottom: theme.spacing(0.5),
+  textAlign: "left",
+}));
+
+// Product price
+const ProductPrice = styled(Typography)(({ theme }) => ({
+  fontSize: "1rem",
+  fontWeight: 500,
+  textAlign: "left",
+  color: theme.palette.primary.light,
+}));
+
+// Main component
 export default function ProductsItem({
   products,
 }: {
-  products: { pr_image: string; pr_price: number; pr_name: string }[];
+  products: {
+    pr_image: string;
+    pr_price: number;
+    pr_name: string;
+    pr_id: number;
+  }[];
 }) {
   return (
-    <>
-      {products.map(
-        (
-          product: { pr_image: string; pr_price: number; pr_name: string },
-          index: number
-        ) => {
-          return (
-            <Grid
-              key={index.toString()}
-              size={{ xs: 6, md: 4, lg: 3, xl: 3, sm: 6 }}
-            >
-              <Link href={"/product/post-1/"} passHref>
-                <Item
-                  sx={{
-                    backgroundImage: `url(${product.pr_image})`,
-                    backgroundSize: "100% 100%",
-                    padding: 0,
-                  }}
-                >
-                  <Typography
-                    variant="h6"
-                    color="#fff"
-                    position={"absolute"}
-                    bottom={0}
-                    fontWeight={"bold"}
-                    sx={{
-                      backgroundColor: "#c6a400",
-                      opacity: 0.9,
-                    }}
-                  >
-                    {product.pr_name}
-                  </Typography>
-                  <Typography
-                    sx={{ textAlign: "center" }}
-                    variant="h6"
-                    position={"absolute"}
-                    top={0}
-                    color="#fff"
-                  >
-                    {" "}
-                    Rs. {product.pr_price}
-                  </Typography>
-                </Item>
-              </Link>
-            </Grid>
-          );
-        }
-      )}
-    </>
+    <Grid container spacing={3}>
+      {products.map((product, index) => (
+        <Grid key={index} size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
+          <Link href={`/product/${product.pr_id}/`} passHref>
+            <ProductCard>
+              <ProductImage src={product.pr_image} alt={product.pr_name} />
+              <InfoOverlay>
+                <ProductName>{product.pr_name}</ProductName>
+                <ProductPrice>Rs. {product.pr_price}</ProductPrice>
+              </InfoOverlay>
+            </ProductCard>
+          </Link>
+        </Grid>
+      ))}
+    </Grid>
   );
 }
