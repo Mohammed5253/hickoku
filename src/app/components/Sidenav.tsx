@@ -20,6 +20,7 @@ import OpenMenuListing from "./OpenMenuListing";
 import Style from "@mui/icons-material/Style";
 import { useTheme, useMediaQuery } from "@mui/material";
 import MobileNavigation from "./MobileNavigation";
+import { useDrawer } from "../context/DrawerContext";
 
 const drawerWidth = 380;
 
@@ -78,9 +79,9 @@ const Drawer = styled(MuiDrawer, {
   ],
 }));
 
-export default function Sidenav({ onCartClick }: { onCartClick: () => void }) {
+export default function Sidenav() {
   const [open, setOpen] = React.useState(false);
-
+  const { openDrawer } = useDrawer();
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -90,13 +91,13 @@ export default function Sidenav({ onCartClick }: { onCartClick: () => void }) {
   };
   const theme = useTheme();
   const isTablet = useMediaQuery(theme.breakpoints.down("md")); // 600px - 900px
-  console.log("isTablet", isTablet);
+  // console.log("isTablet", isTablet);
   return (
     <>
       <Box sx={{ display: isTablet ? "flex" : "none" }}>
         <MobileNavigation
           openDrawer={handleDrawerOpen}
-          cartDrawer={onCartClick}
+          cartDrawer={openDrawer}
         />
       </Box>
       <Box
@@ -168,7 +169,7 @@ export default function Sidenav({ onCartClick }: { onCartClick: () => void }) {
                     {/* {isDrawer ? <Button onClick={onCartClick}> {label}</Button> : */}
                     <Link href={link} passHref>
                       <ListItemButton
-                        onClick={() => (isDrawer ? onCartClick() : "")}
+                        onClick={isDrawer ? openDrawer : () => {}}
                         sx={[
                           {
                             minHeight: 48,

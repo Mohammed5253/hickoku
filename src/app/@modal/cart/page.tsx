@@ -25,10 +25,8 @@ export default function Cart() {
           //   onKeyDown={toggleDrawer()}
           style={{ width: 350 }} // Or set the width here
         >
-                    <p>Cart Content</p>
-                 {" "}
-        </div>
-             {" "}
+          <p>Cart Content</p>{" "}
+        </div>{" "}
       </Drawer>
     </>
   );

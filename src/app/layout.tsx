@@ -1,10 +1,12 @@
 "use client";
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Sidenav from "./components/Sidenav";
 import { Box } from "@mui/material";
-import { useState } from "react";
 import RightSidebar from "./components/RightSidebar";
+import { DrawerProvider } from "./context/DrawerContext";
+import { CartProvider } from "./context/CartContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,11 +30,10 @@ export default function RootLayout({
   children: React.ReactNode;
   modal: React.ReactNode;
 }>) {
-  const [rightSidebarOpen, setRightSidebarOpen] = useState(false);
-
-  const handleCartClick = () => {
-    setRightSidebarOpen(true);
-  };
+  // const [rightSidebarOpen, setRightSidebarOpen] = useState(false);
+  // const handleCartClick = () => {
+  //   setRightSidebarOpen(true);
+  // };
 
   return (
     <html lang="en">
@@ -40,34 +41,35 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable}`}
         style={{ background: "#f5f5f5" }}
       >
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: { xs: "column", md: "row" }, // stack vertically on xs, horizontally on md+
-            height: { xs: "auto", md: "100vh" }, // full viewport height on desktop, auto on mobile
-            width: "100%",
-            overflowX: "hidden",
-          }}
-        >
-          <Sidenav onCartClick={handleCartClick} />
-          <Box
-            component="main"
-            sx={{
-              flexGrow: 1,
-              width: "100%",
-              minWidth: 0, // prevents overflow
-              overflowX: "hidden",
-            }}
-          >
-            {children}
-          </Box>
+        <CartProvider>
+          <DrawerProvider>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: { xs: "column", md: "row" }, // stack vertically on xs, horizontally on md+
+                height: { xs: "auto", md: "100vh" }, // full viewport height on desktop, auto on mobile
+                width: "100%",
+                overflowX: "hidden",
+              }}
+            >
+              <Sidenav />
+              <Box
+                component="main"
+                sx={{
+                  flexGrow: 1,
+                  width: "100%",
+                  minWidth: 0, // prevents overflow
+                  overflowX: "hidden",
+                }}
+              >
+                {children}
+              </Box>
 
-          <RightSidebar
-            open={rightSidebarOpen}
-            onClose={() => setRightSidebarOpen(false)}
-          />
-        </Box>
-        {modal}
+              <RightSidebar />
+            </Box>
+            {modal}
+          </DrawerProvider>
+        </CartProvider>
       </body>
     </html>
   );
