@@ -49,6 +49,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 
 export default function CustomizedAccordions() {
   const [expanded, setExpanded] = React.useState<string | false>("panel1");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [selectedFilters, setSelectedFilters] = React.useState<[]>([]);
 
   const handleChange =
