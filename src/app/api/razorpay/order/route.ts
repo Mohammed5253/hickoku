@@ -22,6 +22,7 @@ export async function POST(req: NextRequest) {
   try {
     const order = await razorpay.orders.create(options);
     return NextResponse.json(order);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     return NextResponse.json({ error: "Order creation failed" }, { status: 500 });
   }

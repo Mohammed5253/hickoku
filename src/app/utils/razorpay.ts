@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // app/razorpay.ts or utils/razorpay.ts
 
 import { loadRazorpayScript } from "./loadRazorPayment"; // path as per your structure
