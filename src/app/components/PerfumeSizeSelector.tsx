@@ -8,22 +8,26 @@ import {
   Box,
 } from "@mui/material";
 import { useState } from "react";
+import { useProduct } from "../context/ProductContext";
 
 export default function BottleSizeSelector({
+  productId,
   sizes,
-  defaultSize = "",
+  defaultSize = 10,
 }: {
+  productId: number;
   sizes: string[];
-  defaultSize?: string;
+  defaultSize?: number;
 }) {
+  const { setSlectedSize } = useProduct();
   const [selectedSize, setSelectedSize] = useState(defaultSize || sizes[0]);
-
   const handleChange = (
     event: React.MouseEvent<HTMLElement>,
-    newSize: string | null
+    newSize: number | null
   ) => {
     if (newSize !== null) {
       setSelectedSize(newSize);
+      setSlectedSize({ id: productId, size: newSize });
     }
   };
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useMemo, useState } from "react";
 
 export type Product = {
   image: string;
@@ -8,6 +8,7 @@ export type Product = {
   name: string;
   price: number;
   quantity: number;
+  size: number;
   discount?: number | null;
 };
 
@@ -17,6 +18,7 @@ type CartContextType = {
   updateQuantity: (productId: number, newQuantity: number) => void;
   removeFromCart: (id: string | number) => void;
   clearCart: () => void;
+  subtotal: number;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -42,7 +44,9 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
       )
     );
   };
-
+  const subtotal = useMemo(() => {
+    return cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  }, [cartItems]);
   const removeFromCart = (id: string | number) => {
     setCartItems((prev) => prev.filter((item) => item.id !== id));
   };
@@ -57,6 +61,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
         updateQuantity,
         removeFromCart,
         clearCart,
+        subtotal,
       }}
     >
       {children}

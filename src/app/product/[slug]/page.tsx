@@ -46,7 +46,7 @@ export default async function Product({
       </Grid>
       <Grid
         size={{ xs: 12, md: 6, lg: 6, sm: 6 }}
-        px={4}
+        px={{ xs: 2, md: 4 }}
         mt={{ xs: 2, md: 0, lg: 0, sm: 0 }}
       >
         <Grid container alignItems="center">
@@ -67,8 +67,9 @@ export default async function Product({
         </Typography>
         <Box my="20px" p={"20px"} bgcolor={"#FFF"} borderRadius={"8px"}>
           <PerfumeSizeSelector
+            productId={product?.pr_id || 0}
             sizes={product?.pr_size.map((size) => size + " ml") || []}
-            defaultSize={"20 ml"}
+            defaultSize={product?.pr_size[0]}
           />
           <Typography variant="body2" mb={1} color="#696969">
             Tax included.
@@ -95,6 +96,7 @@ export default async function Product({
             price: product?.pr_price || 0,
             image: product?.pr_image || "",
             quantity: 1,
+            size: product?.pr_size[0] || 0,
           }}
         />
         <ProductTabs />

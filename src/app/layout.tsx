@@ -7,6 +7,8 @@ import { Box } from "@mui/material";
 import RightSidebar from "./components/RightSidebar";
 import { DrawerProvider } from "./context/DrawerContext";
 import { CartProvider } from "./context/CartContext";
+import { UserProvider } from "./context/UserContext";
+import { ProductProvider } from "./context/ProductContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,35 +43,39 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable}`}
         style={{ background: "#f5f5f5" }}
       >
-        <CartProvider>
-          <DrawerProvider>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: { xs: "column", md: "row" }, // stack vertically on xs, horizontally on md+
-                height: { xs: "auto", md: "100vh" }, // full viewport height on desktop, auto on mobile
-                width: "100%",
-                overflowX: "hidden",
-              }}
-            >
-              <Sidenav />
-              <Box
-                component="main"
-                sx={{
-                  flexGrow: 1,
-                  width: "100%",
-                  minWidth: 0, // prevents overflow
-                  overflowX: "hidden",
-                }}
-              >
-                {children}
-              </Box>
+        <UserProvider>
+          <ProductProvider>
+            <CartProvider>
+              <DrawerProvider>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: { xs: "column", md: "row" }, // stack vertically on xs, horizontally on md+
+                    height: { xs: "auto", md: "100vh" }, // full viewport height on desktop, auto on mobile
+                    width: "100%",
+                    overflowX: "hidden",
+                  }}
+                >
+                  <Sidenav />
+                  <Box
+                    component="main"
+                    sx={{
+                      flexGrow: 1,
+                      width: "100%",
+                      minWidth: 0, // prevents overflow
+                      overflowX: "hidden",
+                    }}
+                  >
+                    {children}
+                  </Box>
 
-              <RightSidebar />
-            </Box>
-            {modal}
-          </DrawerProvider>
-        </CartProvider>
+                  <RightSidebar />
+                </Box>
+                {modal}
+              </DrawerProvider>
+            </CartProvider>
+          </ProductProvider>
+        </UserProvider>
       </body>
     </html>
   );
