@@ -19,12 +19,7 @@ interface SplitFormProps {
   onSubmit: (data: { name?: string; email: string; password: string }) => void;
 }
 
-const SplitForm: React.FC<SplitFormProps> = ({
-  imageSrc,
-  title,
-  subtitle,
-  onSubmit,
-}) => {
+const SplitForm = () => {
   const theme = useTheme();
   const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
 
@@ -54,13 +49,13 @@ const SplitForm: React.FC<SplitFormProps> = ({
       >
         <Box sx={{ width: "100%", maxWidth: 400 }}>
           <Typography variant="h4" gutterBottom>
-            {title}
+            {"Please Register Your Account"}
           </Typography>
-          {subtitle && (
-            <Typography variant="body1" color="text.secondary" gutterBottom>
-              {subtitle}
-            </Typography>
-          )}
+
+          <Typography variant="body1" color="text.secondary" gutterBottom>
+            {"Hassle free registration to get started with our services."}
+          </Typography>
+
           <Box
             component="form"
             onSubmit={handleSubmit}
