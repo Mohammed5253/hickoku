@@ -4,6 +4,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import Link from "next/link";
 
 const OpenMenuListing = () => {
   const categories = [
@@ -30,7 +31,7 @@ const OpenMenuListing = () => {
         <Grid size={{ xs: 6 }}>
           <Stack direction="row" alignItems="center" spacing={1}>
             <PersonIcon fontSize="small" />
-            <Typography variant="body2">Login</Typography>
+            <Link href="/register ">Login</Link>
           </Stack>
         </Grid>
         <Grid size={{ xs: 6 }}>
