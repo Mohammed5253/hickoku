@@ -2,7 +2,7 @@
 
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Sidenav from "./components/Sidenav";
+// import Sidenav from "./components/Sidenav";
 import { Box } from "@mui/material";
 import RightSidebar from "./components/RightSidebar";
 import { DrawerProvider } from "./context/DrawerContext";
@@ -56,7 +56,7 @@ export default function RootLayout({
                     overflowX: "hidden",
                   }}
                 >
-                  <Sidenav />
+                  {/* <Sidenav /> */}
                   <Box
                     component="main"
                     sx={{

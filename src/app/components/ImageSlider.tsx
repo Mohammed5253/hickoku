@@ -21,11 +21,37 @@ export default function ImageSlider() {
   return (
     <>
       <ImageGallery
-        items={images}
-        showThumbnails={true}
-        showNav={false}
-        showPlayButton={false}
-        thumbnailPosition="left"
+      items={images}
+      showThumbnails={true}
+      showNav={true}
+      showPlayButton={false}
+      thumbnailPosition="left"
+      autoPlay={true}
+      slideInterval={3000}
+      renderLeftNav={(onClick, disabled) => (
+        <button
+          type="button"
+          className="image-gallery-icon image-gallery-left-nav"
+          style={{ fontSize: "4rem", width: "48px", height: "48px", lineHeight: "48px" }}
+          onClick={onClick}
+          disabled={disabled}
+          aria-label="Previous Slide"
+        >
+          ‹
+        </button>
+      )}
+      renderRightNav={(onClick, disabled) => (
+        <button
+        type="button"
+        className="image-gallery-icon image-gallery-right-nav"
+        style={{ fontSize: "4rem", width: "48px", height: "48px", lineHeight: "48px" }}
+        onClick={onClick}
+        disabled={disabled}
+        aria-label="Next Slide"
+        >
+        ›
+        </button>
+      )}
       />
     </>
   );
