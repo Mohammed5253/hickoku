@@ -173,41 +173,94 @@ a.secondary {
   }
 }
 
+ /* Header component classes */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1100;
+  background-color: #fff;
+  border-bottom: 1px solid rgba(65, 64, 64, 0.08);
+  padding-top: 1;
+  padding-left: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height:80px;
+}
+
+.logoLink {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  text-decoration: none;
+}
+
+.iconButtons {
+  display: flex;
+  margin-left: auto;
+}
+
+.headerButtonColor {
+  color: #cbcbcb;
+}
+
+.headerSvgLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  color: #cbcbcb;
+}
+/* Header component classes end here */
+
+.logo {
+  background-image: url('/hickoku/logo.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 10px;
+}
+
 .backgroundImage {
   background-image: url('/hickoku/hickoku-banner-2.jpeg');
   background-size: cover;
   background-position: center;
-  height: 688px;
+  height: 400px;
+  border-radius: 8px;
 }
 .backgroundImage2 {
   background-image: url('/hickoku/hickoku-banner-1.jpeg');
   background-size: cover;
   background-position: center;
-  height: 688px;
+  height: 400px;
+  border-radius: 8px;
 }
 .miniBanner1 {
   background-image: url('/hickoku/mini-banner-1.jpeg');
   background-size: cover;
   background-position: center;
-  height: 688px;
+  height: 400px;
+  border-radius: 8px;
 }
-.miniBanner2{
+.miniBanner2 {
   background-image: url('/hickoku/mini-banner-2.jpeg');
     background-size: cover;
     background-position: center;
-    height: 688px;
+    height: 400px;
+    border-radius: 8px;
 }
 .miniBanner3 {
   background-image: url('/hickoku/mini-banner-3.jpeg');
   background-size: cover;
   background-position: center;
-  height: 688px;
+  height: 400px;
+  border-radius: 8px;
 }
 .miniBanner4 {
   background-image: url('/hickoku/mini-banner-4.jpeg');
   background-size: cover;
   background-position: center;
-  height: 688px;
+  height: 400px;
+  border-radius: 8px;
 }
 h1.imageCaption{
   color: #ffffff;
@@ -219,4 +272,13 @@ h1.imageCaption{
   .imageCaption {
     font-size: 1.4rem;
   }
+}
+
+.home-page {
+  position: relative;
+  min-height: 498px;
+  border-radius: 8px;
+  overflow: hidden;
+  column-gap: 8;
+  margin: 20px;
 }

@@ -128,11 +128,10 @@ export default function Sidenav() {
                   <IconButton
                     onClick={handleDrawerOpen}
                     disableRipple
-                    sx={{ width: "15px", padding: 0 }}
+                    sx={{ width: "10px", padding: 0 }}
                   >
-                    <MenuIcon sx={{ fontSize: "40px" }} />
+                    <MenuIcon sx={{ fontSize: "30px" }} />
                   </IconButton>
-                  <Typography variant="caption">Menu</Typography>
                 </div>
               )}
             </DrawerHeader>
