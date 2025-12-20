@@ -217,7 +217,7 @@ a.secondary {
   background-image: url('/hickoku/logo.jpeg');
   background-size: cover;
   background-position: center;
-  height: 10px;
+  /* height: 10px; */
 }
 
 .backgroundImage {
