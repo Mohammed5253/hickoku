@@ -214,9 +214,10 @@ a.secondary {
 /* Header component classes end here */
 
 .logo {
-  background-image: url('/hickoku/logo.jpeg');
-  background-size: cover;
-  background-position: center;
+  /* background-image: url('/hickoku/logo.jpeg'); */
+  /* background-size: cover;
+  background-position: center; */
+  object-fit: contain;
   /* height: 10px; */
 }
 
