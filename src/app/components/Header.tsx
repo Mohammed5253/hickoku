@@ -2,8 +2,11 @@ import { Box, Button, Tooltip } from "@mui/material";
 import styles from "../page.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import { useDrawer } from "../context/DrawerContext";
 
 export default function Header() {
+  const { openDrawer } = useDrawer();
+
   return (
     <>
       <Box className={styles.header} component="header">
@@ -82,9 +85,10 @@ export default function Header() {
               className={styles.headerButtonColor}
             >
               <Link
-                href={"/cart"}
+                href={"#"}
                 aria-label="Cart"
                 className={styles.headerSvgLink}
+                onClick={openDrawer}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

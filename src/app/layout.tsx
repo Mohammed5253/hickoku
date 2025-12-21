@@ -9,6 +9,7 @@ import { DrawerProvider } from "./context/DrawerContext";
 import { CartProvider } from "./context/CartContext";
 import { UserProvider } from "./context/UserContext";
 import { ProductProvider } from "./context/ProductContext";
+import Header from "./components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,15 +49,18 @@ export default function RootLayout({
             <CartProvider>
               <DrawerProvider>
                 <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: { xs: "column", md: "row" }, // stack vertically on xs, horizontally on md+
-                    height: { xs: "auto", md: "100vh" }, // full viewport height on desktop, auto on mobile
-                    width: "100%",
-                    overflowX: "hidden",
-                  }}
+                  sx={
+                    {
+                      // display: "flex",
+                      // flexDirection: { xs: "column", md: "row" }, // stack vertically on xs, horizontally on md+
+                      // height: { xs: "auto", md: "100vh" }, // full viewport height on desktop, auto on mobile
+                      // width: "100%",
+                      // overflowX: "hidden",
+                    }
+                  }
                 >
                   {/* <Sidenav /> */}
+                  <Header />
                   <Box
                     component="main"
                     sx={{
