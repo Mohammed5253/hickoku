@@ -5,13 +5,11 @@ import SingupAndUpdate from "./components/SingupAndUpdate";
 import ExtraInfo from "./components/ExtraInfo";
 import Link from "next/link";
 import ImageSlider from "./components/ImageSlider";
-import Header from "./components/Header";
 
 export default function Home() {
   return (
     <>
-    <Header />
-    < ImageSlider />
+      <ImageSlider location="home" />
       <Grid
         container
         position={"relative"}
@@ -28,7 +26,6 @@ export default function Home() {
             position={"absolute"}
             bottom={0}
             left={0}
-
             my={"20px"}
             ml={"20px"}
           >

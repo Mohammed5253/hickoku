@@ -39,7 +39,7 @@ export default async function Product({
   console.log(product);
   // Render the post content
   return (
-    <Grid container m={"20px"} height={500}>
+    <Grid container m={"20px"} minHeight={500}>
       {/* <Typography variant="body1">{post?.content}</Typography> */}
       <Grid size={{ xs: 12, md: 6, lg: 6, sm: 6 }}>
         <ImageSlider />
